@@ -27,7 +27,7 @@ import egovframework.com.cmm.ComDefaultVO;
  *
  *      </pre>
  */
-public abstract class EgovComAbstractController {
+public class EgovComAbstractController {
 
 	@Resource(name = "propertiesService")
 	private EgovPropertyService egovPropertyService;
