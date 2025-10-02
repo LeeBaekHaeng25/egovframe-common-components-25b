@@ -78,9 +78,9 @@ public class EgovImageProcessController extends HttpServlet {
 
 		// 암호화된 atchFileId 를 복호화하고 동일한 세션인 경우만 다운로드할 수 있다. (2022.12.06 추가) - 파일아이디가 유추
 		// 불가능하도록 조치
-		String param_atchFileId = (String) commandMap.get("atchFileId");
-		param_atchFileId = param_atchFileId.replaceAll(" ", "+");
-		byte[] decodedBytes = Base64.getDecoder().decode(param_atchFileId);
+		String atchFileId = (String) commandMap.get("atchFileId");
+		atchFileId = atchFileId.replaceAll(" ", "+");
+		byte[] decodedBytes = Base64.getDecoder().decode(atchFileId);
 		String decodedString = cryptoService.decrypt(new String(decodedBytes));
 		String decodedSessionId = StringUtils.substringBefore(decodedString, "|");
 		String decodedFileId = StringUtils.substringAfter(decodedString, "|");
